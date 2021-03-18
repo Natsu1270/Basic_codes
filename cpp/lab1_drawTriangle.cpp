@@ -124,13 +124,77 @@ void drawEmptyTriangle(int h)
     }
 }
 
+void drawSquare(int h) {
+    for (int i=0;i<h;i++) {
+        for(int j =0;j<h;j++) {
+            cout<<"* ";
+        }
+        cout<<endl;
+    }
+    cout<<endl;
+}
+
+void drawSquareFrame(int h) {
+    for (int i=0; i < h; i++) {
+        for (int j=0; j < h;j++) {
+            if (i==0||i==h-1) {
+                cout<<"* ";
+            } else {
+                if (j==0||j==h-1) {
+                    cout<<"* ";
+                } else {
+                    cout<<"  ";
+                }
+            }
+        }
+        cout<<endl;
+    }
+}
+
+void fibonaciWordLoop(int n) {
+    string res = "";
+    string s0= "0";
+    string s1= "01";
+
+    if (n==0) {
+        cout<<s0;
+        return;
+    }
+    if (n==1) {
+        cout<<s1;
+        return;
+    }
+    for (int i=2; i<=n; i++) {
+        res = s1+s0;
+        s0=s1;
+        s1=res;
+    }
+    cout<<res<<endl;
+
+}
+
+string fibonacWordRec(int n) {
+    if (n==0) return "0";
+    if (n==1) return "01";
+    return fibonacWordRec(n-1) + fibonacWordRec(n-2);
+}
+
+int bin2dec(int num) {
+    if (num==0) return 0;
+    return num%10 + 2*bin2dec(num/10);
+}
+
 int main()
 {
-    drawFoo(5, false);
-    drawSolidTriangle(4);
-    drawSolidTriangle2(4);
-    drawSolidTriangle3(4);
-    drawEmptyTriangle(20);
-
+    // cout<<fibonacWordRec(3)<<endl;    
+    // drawFoo(5, false);
+    // drawSolidTriangle(4);
+    // drawSolidTriangle2(4);
+    // drawSolidTriangle3(4);
+    // drawEmptyTriangle(6);
+    // drawSquare(7);
+    // drawSquareFrame(6);
+    // fibonaciWordLoop(3);
+    cout<<bin2dec(1101)<<endl;
     return 0;
 }
