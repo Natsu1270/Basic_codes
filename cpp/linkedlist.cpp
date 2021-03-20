@@ -265,12 +265,51 @@ float polyEvaPow(node* head, float x) {
     }
 }
 
-node* reverseLinkedList(node* root, int& n) {
+node* reverseLinkedList(node* root, int n) {
     if (root->next==NULL) {
         return root;
     }
     root->next=reverseLinkedList(root->next, n);
     return root;
+}
+
+void insertLinkedList(node*& head, int pos, int data) {
+    node* newNode = new node;
+    newNode->data=data;
+    if (pos<=0) {
+        newNode->next=head;
+        head=newNode;
+        return;
+    }
+    node* r=head;
+    // node* prev=head;
+    while(r) {
+        if (pos==1) {
+            newNode->next=r->next;
+            r->next=newNode;
+        }
+        pos--;
+        // prev=r;
+        r=r->next;
+    }
+}
+
+node* insertLinkedListRec(node* head, int pos, int data) {
+    if (head->next==NULL) {
+        node* t = new node;
+        t->data = data;
+        t->next = NULL;
+        head->next = t;
+        return head;
+    }
+    if(pos==0) {
+        node* t = new node;
+        t->data = data;
+        t->next = head;
+        return t;
+    }
+    head->next = insertLinkedListRec(head->next, pos-1, data);
+    return head;
 }
 
 int main() {
@@ -294,11 +333,11 @@ int main() {
     // printLinkedList(p1);
     // cout<<sumLinkedList(p1)<<endl;
 
-    int arr[] = {2,3,4};
-    node* head = convertListToLinkedList(arr,3);
+    int arr[] = {2,3,4,5,6};
+    node* head = convertListToLinkedList(arr,5);
     printLinkedList(head);
-    node* nHead = reverseLinkedList(head);
-    printLinkedList(nHead);
+    node* insert = insertLinkedListRec(head, 6,99);
+    printLinkedList(insert);
 
 
     return 0;
