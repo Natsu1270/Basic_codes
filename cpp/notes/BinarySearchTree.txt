@@ -1,0 +1,5 @@
+- Each node has maximum of two children (binary)
+- Use to search for complexity O(log(n)) time (search)
+- All nodes of left subtree are less than the root node in value
+- All nodes of right subtree are greater than the root node in value
+- 
