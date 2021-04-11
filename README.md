@@ -1,5 +1,4 @@
 # c-code
-Site for saving my codes.
-C++ how to program 
+Coding storage
 @author 
 Natsu1720
