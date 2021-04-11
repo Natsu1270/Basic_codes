@@ -1,0 +1,4 @@
+~strip() = trim() (in java) -> remove blank space before and behind a string
+~lstrip(), rstrip() -> right/left remove blank
+~
+
